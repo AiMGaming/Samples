@@ -1,0 +1,41 @@
+<html lang="en"> 
+<head> 
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width">
+    <script src='file:///android_asset/app.js'></script>
+	<script type="text/javascript" src="Html/phaser.2.4.3.min.js"></script>
+    <style type="text/css"> body { margin: 0; } </style>
+    <script>mode = (app.GetOSVersion()<20 ? Phaser.CANVAS : Phaser.AUTO );</script>
+</head>
+
+<body>
+<script>
+
+var game = new Phaser.Game(800, 600, mode, '', 
+        { preload: preload, create: create, update: update });
+
+function preload() 
+{
+    //Make the game fit the screen (use EXACT_FIT to stretch full screen).
+    game.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;  
+    game.scale.pageAlignHorizontally = true;
+    game.scale.pageAlignVertically = true;
+
+    game.load.image('sky', 'Img/sky.png');
+    game.load.image('ground', 'Img/platform.png');
+    game.load.image('star', 'Img/star.png');
+    game.load.spritesheet('dude', 'Img/dude.png', 32, 48);
+}
+
+function create() 
+{
+    game.add.sprite(0, 0, 'star');
+}
+
+function update() 
+{
+}
+    
+</script>
+</body>
+</html>
